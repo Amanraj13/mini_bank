@@ -2,6 +2,12 @@
 #include<string>
 using namespace std;
 
+ string name;
+ string contact_number;
+ string age;
+ string city;
+ 
+
 
 void register_new();
 void join();
@@ -9,6 +15,9 @@ void display_menu();
 void login(int pin_n);
 void display_account_details(); 
 void account_balance(double bal);
+void deposit(double &bal1);
+void withdraw(double &bal3);
+
 
 int main(){
     double balance{0.00};
@@ -22,13 +31,37 @@ int main(){
         switch(choise){
         case 'D':
         display_account_details();
+        cout<<"\n\nEnter Your Choise: ";
+        cin>>choise;
 
         break;
 
         case 'B':
         account_balance(balance);
+        cout<<"\nEnter Your Choise: ";
+        cin>>choise;
+
+        break;
+
+        case 'A':
+        deposit(balance);
+        cout<<"\nEnter Your Choise: ";
+        cin>>choise;
+
+        break;
+
+        case 'W':
+        withdraw(balance);
+        cout<<"\nEnter Your Choise: ";
+        cin>>choise;
+        
+        break;
+
+      
 
     }
+
+
 
         
 
@@ -53,7 +86,17 @@ void register_new(){
 void join(){
     int pin;
     char selection;
+   
     cout<<"\nCongratulations! We are happy to have you here.";
+    cout<<"\nEnter your name:";
+    cin>>name;
+    cout<<"\nEnter your Contact Number:";
+    cin>>contact_number;
+    cout<<"\nEnter your City:";
+    cin>>city;
+    cout<<"\nEnter your age:";
+    cin>>age;
+    
     cout<<"\nEnter your first pin: ";
     cin>>pin;
     cout<<"\nWe have set PIN for your account.For security reasons please do not share PIN with anyone";
@@ -95,6 +138,9 @@ void login(int pin_n){
 
 void display_account_details(){
     cout<<"\n\nYour Account Details are as following:";
+    cout<<"\nName:"<<name;
+    cout<<"\nCity:"<<city;
+    cout<<"\nContact Number:"<<contact_number;
     cout<<"\nAccount Number : 569D87456321T455X";
     cout<<"\nAccount Balance: Rs 0.00 only";
     cout<<"\nBranch Number: ASDFG8965LK41";
@@ -109,6 +155,35 @@ void account_balance(double bal){
     cout<<"Account Balance: Rs"<<bal_1;
     cout<<"";
 }
+
+void deposit(double &bal1){
+    double bal2;
+    cout<<"\nEnter the amount you want to add:";
+    bal2;
+
+    bal1=bal1+bal2;
+    cout<<"\nThe deposit was successful";
+
+
+}
+
+void withdraw(double &bal3){
+
+    double withdraw_amount;
+    cout<<"\nEnter the amount you want to withdraw:";
+    cin>>withdraw_amount;
+
+    if(withdraw_amount<=bal3){
+        cout<<"\nInsufficient balance in your account";
+    }else{
+        bal3=bal3-withdraw_amount;
+        cout<<"\nWithdraw was succcessful";
+    }
+
+
+}
+
+
 
 
 
